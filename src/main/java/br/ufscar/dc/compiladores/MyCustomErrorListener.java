@@ -1,4 +1,3 @@
-
 package br.ufscar.dc.compiladores;
 
 import java.io.PrintWriter;
@@ -15,14 +14,12 @@ public class MyCustomErrorListener implements ANTLRErrorListener {
        this.pw = pw;    
     }
 
-    boolean parada = false;
+    // boolean flag = false;
 
     @Override
     public void	syntaxError(Recognizer<?,?> recognizer, Object offendingSymbol, int line, int charPositionInLine, String msg, RecognitionException e) {
-        // Aqui vamos colocar o tratamento de erro customizado
-
-        if (parada)
-            return;
+        // if (flag)
+        //     return;
 
         Token t = (Token) offendingSymbol;
 
@@ -43,8 +40,8 @@ public class MyCustomErrorListener implements ANTLRErrorListener {
                 pw.println("Linha " + line + ": erro sintatico proximo a " + t.getText());
             }
     
-            pw.println("Fim da compilacao");
-            parada = true;
+            // flag = true;
+            // pw.println("Fim da compilacao");
     }
 
     @Override

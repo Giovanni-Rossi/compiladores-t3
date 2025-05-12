@@ -1,0 +1,39 @@
+declare
+    num1: inteiro
+declare
+    texto1: literal
+declare
+    flag: logico
+declare
+    num1: real // Error: Redeclaration of num1 - This will be a semantic error.
+
+tipo
+    meu_tipo : inteiro
+
+constante // Corrected: 'constante' applies to one declaration line by default
+    PI : real = 3.14159
+constante
+    NOME : literal = "Jander"
+// constante PI : inteiro = 3 // Error: Redeclaration of PI
+
+algoritmo
+    declare
+        num2: real
+    declare // Each new type or set of variables of the same type needs 'declare'
+        num3: meu_tipo
+
+    num1 <- 10
+    num2 <- 5.5
+    texto1 <- "Ola"
+    texto1 <- num1   // Error: Type mismatch (literal <- real or inteiro)
+    num3 <- PI
+
+    leia(num_inexistente) // Error: num_inexistente not declared
+
+    se num2 > "texto" entao // Error: Relational op with incompatible types (real > literal)
+        escreva("Maior")
+    fim_se
+
+    escreva(PI, NOME, num3)
+
+fim_algoritmo
