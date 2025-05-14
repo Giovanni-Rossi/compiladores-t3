@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <project xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -16,8 +15,8 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <!-- Definindo a versão do Java para 11 -->
+        <maven.compiler.release>11</maven.compiler.release> 
     </properties>
 
     <dependencies>
@@ -74,6 +73,19 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <!-- É uma boa prática definir a versão do maven-compiler-plugin aqui também,
+                 embora já esteja no pluginManagement.
+                 A propriedade maven.compiler.release será usada por ele. -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version> 
+                <!-- A configuração de source/target/release pode ser feita aqui também,
+                     mas usar as propriedades é mais comum e limpo.
+                <configuration>
+                    <release>11</release>
+                </configuration>
+                -->
             </plugin>
         </plugins>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be
